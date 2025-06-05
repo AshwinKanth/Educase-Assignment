@@ -1,44 +1,23 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
+import { useState } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // ✅ Correct import
+import WelcomeScreen from './pages/WelcomeScreen.jsx';
+import Signin from './pages/Signin.jsx';
+import Signup from './pages/Signup';
+import AccountSettings from './pages/AccountSettings.jsx';
 
 
 function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-blue-100">
-      <h1 className="text-4xl font-bold text-blue-700">✅ Tailwind CSS v4 is working in Educase!</h1>
+    <div className='rubik'>
+      <Router>
+        <Routes>
+          <Route path="/" element={<WelcomeScreen />} />
+          <Route path="/Signin" element={<Signin />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Account" element={<AccountSettings />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
